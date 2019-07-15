@@ -18,6 +18,8 @@ var PORT = 3000;
 var app = express();
 
 // Configure middleware
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -31,10 +33,12 @@ app.use(express.static("public"));
 mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+
 
 // Routes
+app.get("/", function(req, res) {
+  res.render("index", {});
+});
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
