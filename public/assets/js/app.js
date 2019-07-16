@@ -1,18 +1,35 @@
 $(document).ready(function() 
 {
+
+  $.getJSON("/articles", function(data)
+  {
+    for (var i = 0; i < data.length; i++) 
+    {
+      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    }
+  });
+
   $("#getNews").on("click", function() 
   {
-    $.getJSON("/articles", function(data)
-    {
-      for (var i = 0; i < data.length; i++) 
-      {
-        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-      }
-    });
+    console.log("#getNews");
+    // this should be /scrape
+    // get the content from a website
+    // check to see if a matching headline already exists in DB
+    // if not add it to DB
   });
 
   $(document).on("click", "p", function() 
   {
+    // article p tag needs defined class,
+    // then if anything of that class is clicked...
+    // go to a page for the speciic article
+    // headline
+    // link
+    // date
+    // writer
+    // summary
+    // display all comments
+
     $("#notes").empty();
 
     var thisId = $(this).attr("data-id");
@@ -42,9 +59,11 @@ $(document).ready(function()
     });
   });
 
-  
   $(document).on("click", "#savenote", function()
   {
+    // user has textbox to enter comment
+    // then click #savenote button to store comment in DB
+
     var thisId = $(this).attr("data-id");
 
     $.ajax(
