@@ -1,16 +1,33 @@
 
 
-<div id="wrapper">
-
-<h1>Article Title</h1>
-<h3>Written By: </h3>
-<h3>Date: </h3>
-<h5>Link</h5>
-
-<div>Blurb</div>
-
-<div id="userComments">COMMENTS GO HERE</div>
-
-
-
-</div>
+<div class="container">
+    <div class="row"> 
+    <h1>Article Title</h1>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <h3>Written By: </h3>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <h3>Date: </h3>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <h5>Link</h5>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <div>Blurb</div>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <h3>Community Discussion</h3>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <div>
+        <form id="commentForm" class="clearfix mb-4" method="post">
+            <textarea id="user-added-note"></textarea>
+            <button id="new-note-submit" class="btn btn-primary">Add Note</button>
+        </form>
+    </div>
+    </div> <!-- /row -->
+    <div class="row"> 
+    <div id="userComments">COMMENTS GO HERE</div>
+    </div> <!-- /row -->
+</div><!-- /container -->

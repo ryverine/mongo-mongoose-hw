@@ -37,3 +37,13 @@ textarea {
   height: 200px;
   font-size: 18px;
 }
+
+.article-data{
+  margin: 5px;
+  border: 2px solid red;
+  padding: 5px;
+}
+
+.article-data:hover{
+  border-color: blue;
+}

@@ -1,13 +1,13 @@
 $(document).ready(function() 
 {
 
-  $.getJSON("/articles", function(data)
+  /*$.getJSON("/articles", function(data)
   {
     for (var i = 0; i < data.length; i++) 
     {
       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
     }
-  });
+  });*/
 
   $("#getNews").on("click", function() 
   {
@@ -18,9 +18,10 @@ $(document).ready(function()
     // if not add it to DB
   });
 
-  $(document).on("click", "p", function() 
+  $(document).on("click", ".article-data", function() 
   {
-    window.location.href = "/article/9";
+    var articleID = $(this).attr("data-article-id");
+    window.location.href = "/article/" + articleID;
 
     // article p tag needs defined class,
     // then if anything of that class is clicked...
@@ -32,7 +33,7 @@ $(document).ready(function()
     // summary
     // display all comments
 
-    $("#notes").empty();
+    /*$("#notes").empty();
 
     var thisId = $(this).attr("data-id");
 
@@ -58,7 +59,7 @@ $(document).ready(function()
         $("#titleinput").val(data.note.title);
         $("#bodyinput").val(data.note.body);
       }
-    });
+    });*/
   });
 
   $(document).on("click", "#savenote", function()
@@ -86,5 +87,13 @@ $(document).ready(function()
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
+
+  $("#new-note-submit").on("click", function(event){
+    event.preventDefault();
+    var newNote = $("#user-added-note").val().trim();
+  });
+
+
+
 
 });

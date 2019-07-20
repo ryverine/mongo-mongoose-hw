@@ -8,7 +8,15 @@
 
 <div><button id="getNews">Get News</button></div>
 
-<div id="articles"></div>
+<div id="articles-section">
+
+{{#each article}}
+<div class="article-data" data-article-id="{{_id}}">
+<div>{{title}}</div>
+</div>
+{{/each}}
+
+</div>
 
 <div id="notes"></div>
 
