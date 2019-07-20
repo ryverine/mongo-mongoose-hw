@@ -62,7 +62,7 @@ $(document).ready(function()
     });*/
   });
 
-  $(document).on("click", "#savenote", function()
+  /*$(document).on("click", "#savenote", function()
   {
     // user has textbox to enter comment
     // then click #savenote button to store comment in DB
@@ -86,27 +86,34 @@ $(document).ready(function()
 
     $("#titleinput").val("");
     $("#bodyinput").val("");
-  });
+  });*/
 
-  $("#new-note-submit").on("click", function(event){
+  $( "#new-note-submit" ).click(function(event)
+  //$("#new-note-submit").on("click", function(event)
+  {
     event.preventDefault();
     var newNote = $("#user-added-note").val().trim();
     var articleID = $("#wrapper").attr("data-article-id");
 
-    $.ajax(
+    alert("new note = " + newNote);
+
+    if(newNote.length >= 2)
     {
-      method: "POST",
-      url: "/article/" + articleID,
-      data: 
+      $.ajax(
       {
-        body: $("#bodyinput").val()
-      }
-    }).then(function(data) 
-    {
-      //console.log(data);//
-      //$("#notes").empty();
-      // location.reload();
-    });
+        method: "POST",
+        url: "/article/" + articleID,
+        data: 
+        {
+          body: newNote
+        }
+      }).then(function(data) 
+      {
+        //console.log(data);//
+        //$("#notes").empty();
+        // location.reload();
+      });
+    }
   });
 
 });
