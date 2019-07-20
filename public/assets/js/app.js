@@ -16,6 +16,18 @@ $(document).ready(function()
     // get the content from a website
     // check to see if a matching headline already exists in DB
     // if not add it to DB
+
+    $.ajax(
+      {
+        method: "GET",
+        url: "/scrape"
+      })
+      .then(function(data) 
+      {
+        // now populate page?
+        // reload page?
+        location.reload();
+      });
   });
 
   $(document).on("click", ".article-data", function() 
