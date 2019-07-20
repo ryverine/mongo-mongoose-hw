@@ -91,9 +91,22 @@ $(document).ready(function()
   $("#new-note-submit").on("click", function(event){
     event.preventDefault();
     var newNote = $("#user-added-note").val().trim();
+    var articleID = $("#wrapper").attr("data-article-id");
+
+    $.ajax(
+    {
+      method: "POST",
+      url: "/article/" + articleID,
+      data: 
+      {
+        body: $("#bodyinput").val()
+      }
+    }).then(function(data) 
+    {
+      //console.log(data);//
+      //$("#notes").empty();
+      // location.reload();
+    });
   });
-
-
-
 
 });
