@@ -12,7 +12,14 @@ var NoteSchema = new Schema({
   body: {
     type: String,
     required: true
+  },
+
+  article: {
+    type: String,
+    required: true
   }
+
+  
 
   // add datetime
 });

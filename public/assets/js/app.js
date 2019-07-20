@@ -117,13 +117,14 @@ $(document).ready(function()
         url: "/article/" + articleID,
         data: 
         {
-          body: newNote
+          body: newNote,
+          article: articleID
         }
       }).then(function(data) 
       {
         //console.log(data);//
         //$("#notes").empty();
-        // location.reload();
+        location.reload();
       });
     }
   });
