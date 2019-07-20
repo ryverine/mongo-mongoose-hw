@@ -61,7 +61,8 @@ app.get("/scrape", function(req, res) {
 });
 
 // Route for getting all Articles from the db
-app.get("/articles", function(req, res) {
+app.get("/articles", function(req, res) 
+{
   // Grab every document in the Articles collection
   db.Article.find({})
     .then(function(dbArticle) {
@@ -75,7 +76,8 @@ app.get("/articles", function(req, res) {
 });
 
 // Route for grabbing a specific Article by id, populate it with it's note
-app.get("/articles/:id", function(req, res) {
+app.get("/articles/:id", function(req, res) 
+{
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   db.Article.findOne({ _id: req.params.id })
     // ..and populate all of the notes associated with it
@@ -91,7 +93,8 @@ app.get("/articles/:id", function(req, res) {
 });
 
 // Route for saving/updating an Article's associated Note
-app.post("/articles/:id", function(req, res) {
+app.post("/articles/:id", function(req, res) 
+{
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function(dbNote) {
@@ -110,7 +113,13 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+app.get("/article/:id", function(req, res) 
+{
+  res.render("article", {});
+});
+
 // Start the server
-app.listen(PORT, function() {
+app.listen(PORT, function() 
+{
   console.log("App running on port " + PORT + "!");
 });

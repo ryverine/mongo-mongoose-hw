@@ -20,6 +20,8 @@ $(document).ready(function()
 
   $(document).on("click", "p", function() 
   {
+    window.location.href = "/article/9";
+
     // article p tag needs defined class,
     // then if anything of that class is clicked...
     // go to a page for the speciic article
