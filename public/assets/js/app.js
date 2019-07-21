@@ -24,7 +24,6 @@ $(document).ready(function()
   {
     var articleID = $(this).attr("data-article-id");
     window.location.href = "/article/" + articleID;
-
   });
 
   $( "#new-note-submit" ).click(function(event)
@@ -50,5 +49,21 @@ $(document).ready(function()
       });
     }
   });
+
+  $(document).on("click", ".deleteNote", function()
+  {
+    var articleID = $("#wrapper").attr("data-article-id");
+    var noteID = $(this).attr("data-note-id");
+
+    $.ajax(
+    {
+      method: "DELETE",
+      url: "/note/" + noteID,
+    }).then(function(data) 
+    {
+      location.reload();
+    });
+
+  }); 
 
 });
