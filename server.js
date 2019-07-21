@@ -107,16 +107,13 @@ app.get("/article/:id", function(req, res)
     });
 });
 
-
-
-
   app.delete("/note/:id", function(req, res) 
   {
     //  _id: req.params.id 
     db.Note.findOneAndDelete({ _id: req.params.id })
     .then(function(dbNoteRemoved) {
 
-      res.json(dbCommentsRemoved);
+      res.json(dbNoteRemoved);
       
     });
   });
